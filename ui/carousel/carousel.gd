@@ -49,6 +49,11 @@ func _on_arrowRight_pressed():
 func _on_chooseButton_pressed():
 	chooseButton.disabled = true
 	gameData.chosenDiety = options[currentOption]
+	gameData.deityOptions.erase(options[currentOption])
+
+	randomize()
+	var randIndex = randi() % gameData.deityOptions.size() - 1
+	gameData.computerDeity = gameData.deityOptions[randIndex]
 
 # Fades out the carousel
 func _on_chooseButton_button_up():

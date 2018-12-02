@@ -14,7 +14,7 @@ var followerIcon = load("res://assets/sprites/ui/icons/follower.png")
 
 func _ready():
 	carousel.setHeader("your deity")
-	carousel.setOptions(["A", "B", "C"])
+	carousel.setOptions(gameData.deityOptions)
 
 # Signals
 
@@ -26,7 +26,7 @@ func _on_carousel_tree_exited():
 	tween.interpolate_property(textInterface, "modulate", Color(1,1,1,0), Color(1,1,1,1), 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
 
-	textInterface.setText("How many worshippers will you sacrifice?")
+	textInterface.setText(["How many worshippers will you sacrifice?"])
 
 	var vertScroll = load("res://ui/vertScroll/vertScroll.tscn").instance()
 	vertScroll.connect("tree_exited", self, "_on_vertScroll_tree_exited")
@@ -39,11 +39,32 @@ func _on_carousel_tree_exited():
 
 # Called when a sacrifice count is selected and the vertical scroll has exited the tree
 func _on_vertScroll_tree_exited():
+	var textArrayToUse = ["You've sacrificed " + String(gameData.playerSacrificeCount) + " worshippers."]
 	# Reset the vertical scroll value
 	gameData.playerFollowerCount -= gameData.playerSacrificeCount
 
-	# Update text
-	textInterface.setText("You've sacrificed " + String(gameData.playerSacrificeCount) + " worshippers.")
-
 	for i in range(gameData.playerSacrificeCount):
 		followerHbox.get_children()[i].queue_free()
+
+	# Randomly choose computer bid count
+	randomize()
+	var computerBid = randi() % (gameData.computerFollowerCount + 1)
+	gameData.computerSacrificeCount = computerBid
+
+	textArrayToUse.append(gameData.computerDeity + " sacrificed " + String(gameData.computerSacrificeCount) + " worshippers.")
+
+	# Subtract computer bid
+	gameData.computerFollowerCount -= computerBid
+
+	# Compare results
+	if gameData.playerSacrificeCount > computerBid:
+		var difference = gameData.playerSacrificeCount - computerBid
+		textArrayToUse.append("You outbid " + gameData.computerDeity + " and gained " + String(difference) + " worshippers!")
+	elif gameData.playerSacrificeCount == computerBid:
+		textArrayToUse.append("You and " + gameData.computerDeity + " sacrificed the same! Neither wins...")
+	# If you lose, lose 1 worshipper
+	else:
+		textArrayToUse.append("You lost the bid and an extra worshipper.")
+
+	# Update text
+	textInterface.setText(textArrayToUse)
