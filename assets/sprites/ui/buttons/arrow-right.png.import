@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/arrow-left.png-d7fdcf7cde97586ccd0a10885b8af87a.stex"
+path="res://.import/arrow-right.png-178c98fcc7629a95ed5cdb554b2da5eb.stex"
 
 [deps]
 
-source_file="res://assets/sprites/ui/arrow-left.png"
-dest_files=[ "res://.import/arrow-left.png-d7fdcf7cde97586ccd0a10885b8af87a.stex" ]
+source_file="res://assets/sprites/ui/buttons/arrow-right.png"
+dest_files=[ "res://.import/arrow-right.png-178c98fcc7629a95ed5cdb554b2da5eb.stex" ]
 
 [params]
 

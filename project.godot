@@ -13,6 +13,10 @@ config_version=3
 config/name="LD43"
 config/icon="res://icon.png"
 
+[autoload]
+
+gameData="*res://globals/gameData.gd"
+
 [display]
 
 window/size/width=640
