@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/game/game.gd" type="Script" id=1]
 [ext_resource path="res://ui/themes/deityHbox/deityHbox.tres" type="Theme" id=2]
 [ext_resource path="res://ui/deityPanel/deityPanel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ui/carousel/carousel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/textInterface/textInterface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/carousel/carousel.tscn" type="PackedScene" id=5]
 
-[node name="game" type="Node2D" index="0"]
+[node name="game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -48,7 +49,7 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 theme = ExtResource( 2 )
 alignment = 1
-_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+_sections_unfolded = [ "Rect", "Size Flags", "Theme", "Visibility" ]
 
 [node name="playerDeityPanel" parent="ui/uiContainer/deityHbox" index="0" instance=ExtResource( 3 )]
 
@@ -56,9 +57,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 190.0
+margin_left = 160.0
 margin_top = 0.0
-margin_right = 318.0
+margin_right = 288.0
 margin_bottom = 128.0
 
 [node name="computerDeityPanel" parent="ui/uiContainer/deityHbox" index="1" instance=ExtResource( 3 )]
@@ -67,14 +68,19 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 322.0
+margin_left = 352.0
 margin_top = 0.0
-margin_right = 450.0
+margin_right = 480.0
 margin_bottom = 128.0
 
-[node name="carousel" parent="ui/uiContainer" index="1" instance=ExtResource( 4 )]
+[node name="textInterface" parent="ui/uiContainer" index="1" instance=ExtResource( 4 )]
 
-[node name="followerHbox" type="HBoxContainer" parent="ui/uiContainer" index="2"]
+modulate = Color( 1, 1, 1, 0 )
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="carousel" parent="ui/uiContainer" index="2" instance=ExtResource( 5 )]
+
+[node name="followerHbox" type="HBoxContainer" parent="ui/uiContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 1.0

@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/textInterface/textInterface.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/ui/panels/text-patch.png" type="Texture" id=2]
+[ext_resource path="res://ui/vertScroll/vertScroll.tscn" type="PackedScene" id=3]
+
+[node name="textInterface" type="CenterContainer" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -32.0
+margin_right = 160.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="patch" type="NinePatchRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 320.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 320, 64 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+_sections_unfolded = [ "Patch Margin", "Rect" ]
+
+[node name="patchMargins" type="MarginContainer" parent="patch" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="label" type="Label" parent="patch/patchMargins" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 310.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 0, 54 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="vertScroll" parent="patch" index="1" instance=ExtResource( 3 )]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 260.0
+margin_top = 2.0
+margin_right = 324.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 54, 54 )
+stretch_mode = 5
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Theme" ]
+
+
