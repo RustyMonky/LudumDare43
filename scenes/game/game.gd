@@ -16,6 +16,27 @@ func _ready():
 	carousel.setHeader("your deity")
 	carousel.setOptions(gameData.deityOptions)
 
+	textInterface.confirmButton.connect("pressed", self, "_on_confirmButton_pressed")
+
+# addFollowers
+# Adds followers to the appropriate container
+func addFollowers():
+	for i in range(gameData.playerFollowerCount):
+		var follower = TextureRect.new()
+		follower.texture = followerIcon
+		followerHbox.add_child(follower)
+
+# resetSacrificePrompt
+# Resets sacrifice data and updates text interface for next bidding
+func resetSacrificePrompt():
+	gameData.computerSacrificeCount = 0
+	gameData.playerSacrificeCount = 0
+	textInterface.setText(["How many worshippers will you sacrifice?"])
+
+	var vertScroll = load("res://ui/vertScroll/vertScroll.tscn").instance()
+	vertScroll.connect("tree_exited", self, "_on_vertScroll_tree_exited")
+	textHbox.add_child(vertScroll)
+
 # Signals
 
 # Called when a deity is selected and the carousel has exited the tree
@@ -26,16 +47,18 @@ func _on_carousel_tree_exited():
 	tween.interpolate_property(textInterface, "modulate", Color(1,1,1,0), Color(1,1,1,1), 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
 
-	textInterface.setText(["How many worshippers will you sacrifice?"])
+	resetSacrificePrompt()
+	addFollowers()
 
-	var vertScroll = load("res://ui/vertScroll/vertScroll.tscn").instance()
-	vertScroll.connect("tree_exited", self, "_on_vertScroll_tree_exited")
-	textHbox.add_child(vertScroll)
-
-	for i in range(gameData.playerFollowerCount):
-		var follower = TextureRect.new()
-		follower.texture = followerIcon
-		followerHbox.add_child(follower)
+# Called at end of text cycle to trigger a reset of the bidding flow
+func _on_confirmButton_pressed():
+	if (gameData.computerSacrificeCount > gameData.playerSacrificeCount):
+		followerHbox.get_children().front().queue_free()
+		gameData.playerFollowerCount -= 1
+	elif (gameData.playerSacrificeCount > gameData.computerSacrificeCount):
+		gameData.playerFollowerCount += (gameData.playerSacrificeCount - gameData.computerSacrificeCount)
+		addFollowers()
+	resetSacrificePrompt()
 
 # Called when a sacrifice count is selected and the vertical scroll has exited the tree
 func _on_vertScroll_tree_exited():

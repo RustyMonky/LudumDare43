@@ -1,5 +1,6 @@
 extends CenterContainer
 
+onready var confirmButton = $patch/confirmButton
 onready var label = $patch/patchMargins/patchHbox/label
 onready var nextButton = $patch/patchMargins/patchHbox/nextButton
 
@@ -19,6 +20,7 @@ func setText(labelText):
 
 	if textArray.size() > 1:
 		nextButton.show()
+		confirmButton.hide()
 
 # Signals
 
@@ -28,3 +30,4 @@ func _on_nextButton_pressed():
 
 	if currentTextIndex + 1 > textArray.size() - 1:
 		nextButton.hide()
+		confirmButton.show()
