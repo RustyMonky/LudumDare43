@@ -1,5 +1,6 @@
 extends HBoxContainer
 
+onready var carouselHeader = $carouselHeader
 onready var chooseButton = $chooseButton
 onready var optionLabel = $optionLabel
 onready var tween = $tween
@@ -9,6 +10,13 @@ var options = []
 
 func _ready():
 	pass
+
+# setHeader
+# param [Text]
+# Public function to set carousel header text
+# All text should assume that "Choose" is prefixed
+func setHeader(headerText):
+	carouselHeader.text = headerText
 
 # setOptions
 # param [Array]
