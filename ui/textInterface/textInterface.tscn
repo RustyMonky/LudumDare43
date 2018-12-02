@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://ui/textInterface/textInterface.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/ui/panels/text-patch.png" type="Texture" id=2]
-[ext_resource path="res://ui/vertScroll/vertScroll.tscn" type="PackedScene" id=3]
 
-[node name="textInterface" type="CenterContainer" index="0"]
+[node name="textInterface" type="CenterContainer"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -87,19 +86,5 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "Rect" ]
-
-[node name="vertScroll" parent="patch" index="1" instance=ExtResource( 3 )]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 260.0
-margin_top = 2.0
-margin_right = 324.0
-margin_bottom = 66.0
-rect_min_size = Vector2( 54, 54 )
-stretch_mode = 5
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "Theme" ]
 
 
