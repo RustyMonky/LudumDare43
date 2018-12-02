@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/game/game.gd" type="Script" id=1]
 [ext_resource path="res://ui/carousel/carousel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/deityPanel/deityPanel.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Theme" id=1]
+
+HBoxContainer/constants/separation = 64
+_sections_unfolded = [ "HBoxContainer", "HBoxContainer/constants" ]
 
 [node name="game" type="Node2D" index="0"]
 
@@ -9,6 +15,7 @@ script = ExtResource( 1 )
 
 [node name="ui" type="CanvasLayer" parent="." index="0"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -29,5 +36,58 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 
 [node name="carousel" parent="ui/uiContainer" index="0" instance=ExtResource( 2 )]
+
+[node name="deityHbox" type="HBoxContainer" parent="ui/uiContainer" index="1"]
+
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -320.0
+margin_right = 320.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = SubResource( 1 )
+alignment = 1
+_sections_unfolded = [ "Size Flags", "Theme", "Visibility" ]
+
+[node name="playerDeityPanel" parent="ui/uiContainer/deityHbox" index="0" instance=ExtResource( 3 )]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 160.0
+margin_top = 0.0
+margin_right = 288.0
+margin_bottom = 128.0
+
+[node name="computerDeityPanel" parent="ui/uiContainer/deityHbox" index="1" instance=ExtResource( 3 )]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 352.0
+margin_top = 0.0
+margin_right = 480.0
+margin_bottom = 128.0
+
+[node name="tween" type="Tween" parent="." index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="tree_exited" from="ui/uiContainer/carousel" to="." method="_on_carousel_tree_exited"]
 
 
