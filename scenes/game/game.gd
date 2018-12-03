@@ -15,7 +15,6 @@ var followerIcon = load("res://assets/sprites/ui/icons/follower.png")
 var worshipper = load("res://ui/worshipper/worshipper.tscn")
 
 func _ready():
-	carousel.setHeader("your deity")
 	carousel.setOptions(gameData.deityOptions)
 
 	textInterface.confirmButton.connect("pressed", self, "_on_confirmButton_pressed")

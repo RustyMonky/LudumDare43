@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/result/result.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/ui/panels/diety-panel.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/offeringTitle.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/offering.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/sprites/ui/panels/diety-panel.png" type="Texture" id=4]
 
-[node name="result" type="Container"]
+[node name="result" type="Container" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -33,6 +35,8 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
 autowrap = true
@@ -40,11 +44,10 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="resultVbox" type="GridContainer" parent="." index="1"]
 
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -68,14 +71,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 152.0
-margin_bottom = 14.0
+margin_right = 253.0
+margin_bottom = 23.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Deities Defeated"
 valign = 1
 percent_visible = 1.0
@@ -88,15 +93,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 156.0
-margin_right = 156.0
-margin_bottom = 14.0
+margin_left = 257.0
+margin_right = 257.0
+margin_bottom = 23.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -108,15 +115,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 18.0
-margin_right = 152.0
-margin_bottom = 32.0
+margin_top = 27.0
+margin_right = 253.0
+margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Worshippers Sacrificed"
 valign = 1
 percent_visible = 1.0
@@ -129,16 +138,18 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 156.0
-margin_top = 18.0
-margin_right = 156.0
-margin_bottom = 32.0
+margin_left = 257.0
+margin_top = 27.0
+margin_right = 257.0
+margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -150,15 +161,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 36.0
-margin_right = 152.0
-margin_bottom = 50.0
+margin_top = 54.0
+margin_right = 253.0
+margin_bottom = 77.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Worshippers Remaining"
 valign = 1
 percent_visible = 1.0
@@ -171,16 +184,18 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 156.0
-margin_top = 36.0
-margin_right = 156.0
-margin_bottom = 50.0
+margin_left = 257.0
+margin_top = 54.0
+margin_right = 257.0
+margin_bottom = 77.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -200,7 +215,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 stretch_mode = 5
 _sections_unfolded = [ "Margin" ]
 

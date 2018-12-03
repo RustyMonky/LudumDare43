@@ -8,7 +8,7 @@ closed = true
 cull_mode = 0
 polygon = PoolVector2Array( -0.427185, 42.1359, -0.427185, 32.1359, 39.5728, 32.1359, 39.5728, 42.1359 )
 
-[node name="worshipper" type="TextureRect" index="0"]
+[node name="worshipper" type="TextureRect"]
 
 anchor_left = 0.0
 anchor_top = 0.0
