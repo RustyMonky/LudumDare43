@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/music/occultBassLoop.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/sfx/playHorn.wav" type="AudioStream" id=6]
 
-[node name="title" type="Container" index="0"]
+[node name="title" type="Container"]
 
 anchor_left = 0.5
 anchor_top = 0.5

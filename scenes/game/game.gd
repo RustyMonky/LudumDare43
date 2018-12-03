@@ -13,7 +13,7 @@ onready var uiContainer = $ui/uiContainer
 
 var computerBid = 0
 var followerIcon = load("res://assets/sprites/ui/icons/follower.png")
-var worshipper = load("res://ui/worshipper/worshipper.tscn")
+var worshiper = load("res://ui/worshipper/worshipper.tscn")
 
 func _ready():
 	carousel.setOptions(gameData.deityOptions)
@@ -28,7 +28,7 @@ func addFollowers():
 		child.queue_free()
 
 	for i in range(gameData.playerFollowerCount):
-		var follower = worshipper.instance()
+		var follower = worshiper.instance()
 		followerHbox.add_child(follower)
 	playerDeityPanel.setCount(gameData.playerFollowerCount)
 
@@ -68,14 +68,14 @@ func resetSacrificePrompt():
 	if gameData.computerFollowerCount == 0:
 		textArrayToUse.append({
 			"event": "computerLose",
-			"text": gameData.computerDeity + " is out of worshippers!"
+			"text": gameData.computerDeity + " is out of worshipers!"
 		})
 		victory(textArrayToUse)
 
 	if gameData.playerFollowerCount > 0:
 		textArrayToUse.append({
 			"event": "sacrificePrompt",
-			"text": "How many worshippers will you sacrifice?"
+			"text": "How many worshipers will you sacrifice?"
 		})
 
 		if textArrayToUse.size() == 1:
@@ -100,7 +100,7 @@ func victory(textArray):
 
 		textArray.append({
 			"event": "victory",
-			"text": "Your victory has attracted 7 more worshippers!"
+			"text": "Your victory has attracted 7 more worshipers!"
 		})
 
 		textArray.append({
@@ -176,7 +176,7 @@ func _on_vertScroll_tree_exited():
 
 	var textArrayToUse = [{
 		"event": "playerSacrifice",
-		"text": "You've sacrificed " + String(gameData.playerSacrificeCount) + " worshippers."
+		"text": "You've sacrificed " + String(gameData.playerSacrificeCount) + " worshipers."
 	}]
 	# Reset the vertical scroll value
 	gameData.playerFollowerCount -= gameData.playerSacrificeCount
@@ -191,7 +191,7 @@ func _on_vertScroll_tree_exited():
 
 	textArrayToUse.append({
 		"event": "computerSacrifice",
-		"text": gameData.computerDeity + " sacrificed " + String(gameData.computerSacrificeCount) + " worshippers."
+		"text": gameData.computerDeity + " sacrificed " + String(gameData.computerSacrificeCount) + " worshipers."
 	})
 
 	# Compare results
@@ -199,13 +199,13 @@ func _on_vertScroll_tree_exited():
 		var difference = gameData.playerSacrificeCount - computerBid
 		textArrayToUse.append({
 			"event": "winBid",
-			"text": "You outbid " + gameData.computerDeity + " and gained " + String(difference) + " worshippers!"
+			"text": "You outbid " + gameData.computerDeity + " and gained " + String(difference) + " worshipers!"
 		})
 
 		if gameData.computerFollowerCount > 0:
 			textArrayToUse.append({
 				"event": "computerLoseBid",
-				"text": "They lost an extra worshipper in their defeat."
+				"text": "They lost an extra worshiper in their defeat."
 			})
 
 	elif gameData.playerSacrificeCount == computerBid:
@@ -217,20 +217,20 @@ func _on_vertScroll_tree_exited():
 		if gameData.computerFollowerCount == 0:
 			textArrayToUse.append({
 				"event": "computerLose",
-				"text": "But they are out of worshippers!"
+				"text": "But they are out of worshipers!"
 			})
-	# If you lose, lose 1 worshipper
+
 	else:
 		textArrayToUse.append({
 			"event": "loseBid",
-			"text": "You lost the bid and an extra worshipper."
+			"text": "You lost the bid and an extra worshiper."
 		})
 
 		var difference = gameData.computerSacrificeCount - gameData.playerSacrificeCount
 
 		textArrayToUse.append({
 			"event": "computerWinBid",
-			"text": gameData.computerDeity + " outbid you and gained " + String(difference) + " worshippers."
+			"text": gameData.computerDeity + " outbid you and gained " + String(difference) + " worshipers."
 		})
 
 	# Then, if computer lost, remove god from game
