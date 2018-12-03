@@ -16,7 +16,7 @@ func _ready():
 func setText(labelText):
 	textArray = labelText
 	currentTextIndex = 0
-	label.text = String(textArray[currentTextIndex])
+	label.text = String(textArray[currentTextIndex].text)
 
 	if textArray.size() > 1:
 		nextButton.show()
@@ -26,7 +26,7 @@ func setText(labelText):
 
 func _on_nextButton_pressed():
 	currentTextIndex += 1
-	label.text = String(textArray[currentTextIndex])
+	label.text = String(textArray[currentTextIndex].text)
 
 	if currentTextIndex + 1 > textArray.size() - 1:
 		nextButton.hide()
