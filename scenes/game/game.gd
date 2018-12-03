@@ -21,21 +21,30 @@ func _ready():
 # addFollowers
 # Adds followers to the appropriate container
 func addFollowers():
+	for child in followerHbox.get_children():
+		child.queue_free()
+
 	for i in range(gameData.playerFollowerCount):
 		var follower = TextureRect.new()
 		follower.texture = followerIcon
 		followerHbox.add_child(follower)
+	playerDeityPanel.setCount(gameData.playerFollowerCount)
 
 # resetSacrificePrompt
 # Resets sacrifice data and updates text interface for next bidding
 func resetSacrificePrompt():
-	gameData.computerSacrificeCount = 0
-	gameData.playerSacrificeCount = 0
-	textInterface.setText(["How many worshippers will you sacrifice?"])
+	if gameData.playerFollowerCount > 0:
+		gameData.computerSacrificeCount = 0
+		gameData.playerSacrificeCount = 0
+		textInterface.setText(["How many worshippers will you sacrifice?"])
+		textInterface.confirmButton.hide()
 
-	var vertScroll = load("res://ui/vertScroll/vertScroll.tscn").instance()
-	vertScroll.connect("tree_exited", self, "_on_vertScroll_tree_exited")
-	textHbox.add_child(vertScroll)
+		var vertScroll = load("res://ui/vertScroll/vertScroll.tscn").instance()
+		vertScroll.connect("tree_exited", self, "_on_vertScroll_tree_exited")
+		textHbox.add_child(vertScroll)
+
+	else:
+		print("Lose")
 
 # Signals
 
@@ -52,12 +61,6 @@ func _on_carousel_tree_exited():
 
 # Called at end of text cycle to trigger a reset of the bidding flow
 func _on_confirmButton_pressed():
-	if (gameData.computerSacrificeCount > gameData.playerSacrificeCount):
-		followerHbox.get_children().front().queue_free()
-		gameData.playerFollowerCount -= 1
-	elif (gameData.playerSacrificeCount > gameData.computerSacrificeCount):
-		gameData.playerFollowerCount += (gameData.playerSacrificeCount - gameData.computerSacrificeCount)
-		addFollowers()
 	resetSacrificePrompt()
 
 # Called when a sacrifice count is selected and the vertical scroll has exited the tree
@@ -83,11 +86,42 @@ func _on_vertScroll_tree_exited():
 	if gameData.playerSacrificeCount > computerBid:
 		var difference = gameData.playerSacrificeCount - computerBid
 		textArrayToUse.append("You outbid " + gameData.computerDeity + " and gained " + String(difference) + " worshippers!")
+		gameData.playerFollowerCount += difference
+
+		if gameData.computerFollowerCount > 0:
+			gameData.computerFollowerCount -= 1
+			textArrayToUse.append("They lost an extra worshipper, too!")
+
 	elif gameData.playerSacrificeCount == computerBid:
 		textArrayToUse.append("You and " + gameData.computerDeity + " sacrificed the same! Neither wins...")
+		if gameData.computerFollowerCount == 0:
+			textArrayToUse.append("But they are out of worshippers!")
 	# If you lose, lose 1 worshipper
 	else:
 		textArrayToUse.append("You lost the bid and an extra worshipper.")
+		gameData.playerFollowerCount -= 1
+
+	# Then, if computer lost, remove god from game
+	if gameData.computerFollowerCount == 0:
+		gameData.deityOptions.remove(gameData.computerDeity)
+		gameData.deitiesDefeated += 1
+		randomize()
+
+		if gameData.deityOptions.empty():
+			print("Win")
+		elif gameData.playerFollowerCount > 0:
+			var randIndex = randi() % gameData.deityOptions.size() - 1
+			gameData.computerDeity = gameData.deityOptions[randIndex]
+			gameData.computerFollowerCount = 10
+			gameData.playerFollowerCount += 5
+			playerDeityPanel.setCount(gameData.playerFollowerCount)
+			textArrayToUse.append("Your victory has attracted 5 more worshippers!")
+			textArrayToUse.append(gameData.computerDeity + " is the next deity to defeat.")
+	else:
+		textArrayToUse.append(gameData.computerDeity + " still has " + String(gameData.computerFollowerCount) + " worshippers left.")
 
 	# Update text
 	textInterface.setText(textArrayToUse)
+	addFollowers()
+	playerDeityPanel.setCount(gameData.playerFollowerCount)
+	computerDeityPanel.setCount(gameData.computerFollowerCount)
