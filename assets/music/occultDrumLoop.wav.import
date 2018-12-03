@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/occultDrumLoop.wav-53a2daa2541408a0a795bc4a8b3ff88b.sample"
+
+[deps]
+
+source_file="res://assets/music/occultDrumLoop.wav"
+dest_files=[ "res://.import/occultDrumLoop.wav-53a2daa2541408a0a795bc4a8b3ff88b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

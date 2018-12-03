@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/occultBrassLoop.wav-d686058fc6e88f1f7e811ec43d871310.sample"
+
+[deps]
+
+source_file="res://assets/music/occultBrassLoop.wav"
+dest_files=[ "res://.import/occultBrassLoop.wav-d686058fc6e88f1f7e811ec43d871310.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

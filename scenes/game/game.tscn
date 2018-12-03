@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/game/game.gd" type="Script" id=1]
 [ext_resource path="res://ui/themes/deityHbox/deityHbox.tres" type="Theme" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://ui/carousel/carousel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/background/background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/sprites/effects/light.png" type="Texture" id=7]
+[ext_resource path="res://assets/music/occultDrumLoop.wav" type="AudioStream" id=8]
 
 [node name="game" type="Node2D"]
 
@@ -159,6 +160,15 @@ shadow_filter = 1
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Shadow" ]
+
+[node name="backgroundMusic" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 8 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="tree_exited" from="ui/uiContainer/carousel" to="." method="_on_carousel_tree_exited"]
 

@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/result/result.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/offeringTitle.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/offering.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/sprites/ui/panels/diety-panel.png" type="Texture" id=4]
 [ext_resource path="res://ui/background/background.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/music/occultBrassLoop.wav" type="AudioStream" id=6]
 
-[node name="result" type="Container"]
+[node name="result" type="Container" index="0"]
 
 show_behind_parent = true
 anchor_left = 0.0
@@ -224,5 +225,14 @@ _sections_unfolded = [ "Margin" ]
 
 z_index = -1
 _sections_unfolded = [ "Offset", "Z Index" ]
+
+[node name="music" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 6 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 

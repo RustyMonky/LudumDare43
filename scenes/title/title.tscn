@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/title/title.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/offeringTitle.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/sprites/ui/buttons/play.png" type="Texture" id=3]
 [ext_resource path="res://ui/background/background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/music/occultBassLoop.wav" type="AudioStream" id=5]
 
 [node name="title" type="Container"]
 
@@ -76,6 +77,15 @@ _sections_unfolded = [ "Margin", "Rect", "Textures" ]
 show_behind_parent = true
 position = Vector2( -320, -180 )
 _sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="music" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 5 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 
