@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/sprites/ui/panels/dark-square.png" type="Texture" id=1]
 [ext_resource path="res://ui/vertScroll/vertScroll.gd" type="Script" id=2]
-[ext_resource path="res://assets/sprites/ui/buttons/choose.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/offering.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/sprites/ui/buttons/choose.png" type="Texture" id=4]
 
-[node name="vertScroll" type="TextureRect"]
+[node name="vertScroll" type="TextureRect" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -64,6 +65,8 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
 autowrap = true
@@ -71,7 +74,7 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="submit" type="TextureButton" parent="." index="2"]
 
@@ -79,7 +82,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 45.0
+margin_top = 50.0
 margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -93,7 +96,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 4 )
 stretch_mode = 4
 _sections_unfolded = [ "Margin", "Textures" ]
 
