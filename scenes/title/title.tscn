@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/title/title.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/offeringTitle.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/sprites/ui/buttons/play.png" type="Texture" id=3]
 [ext_resource path="res://ui/background/background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/music/occultBassLoop.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sfx/playHorn.wav" type="AudioStream" id=6]
 
 [node name="title" type="Container"]
 
@@ -84,6 +85,15 @@ stream = ExtResource( 5 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="sfx" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 6 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
 mix_target = 0
 bus = "Master"
 

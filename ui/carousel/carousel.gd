@@ -3,10 +3,13 @@ extends HBoxContainer
 onready var carouselHeader = $carouselHeader
 onready var chooseButton = $chooseButton
 onready var optionLabel = $optionLabel
+onready var sfx = $sfx
 onready var tween = $tween
 
+var clickSound = load("res://assets/sfx/click.wav")
 var currentOption = 0
 var options = []
+var switchSound = load("res://assets/sfx/switch.wav")
 
 func _ready():
 	pass
@@ -35,6 +38,8 @@ func _on_arrowLeft_pressed():
 		currentOption -= 1
 
 	optionLabel.text = options[currentOption]
+	sfx.stream = switchSound
+	sfx.play()
 
 # Moves carousel option to right
 func _on_arrowRight_pressed():
@@ -44,6 +49,8 @@ func _on_arrowRight_pressed():
 		currentOption += 1
 
 	optionLabel.text = options[currentOption]
+	sfx.stream = switchSound
+	sfx.play()
 
 # Assigns the diety to the player
 func _on_chooseButton_pressed():
@@ -54,6 +61,9 @@ func _on_chooseButton_pressed():
 	randomize()
 	var randIndex = randi() % gameData.deityOptions.size() - 1
 	gameData.computerDeity = gameData.deityOptions[randIndex]
+
+	sfx.stream = clickSound
+	sfx.play()
 
 # Fades out the carousel
 func _on_chooseButton_button_up():

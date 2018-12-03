@@ -184,6 +184,15 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
+[node name="sfx" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [connection signal="pressed" from="arrowLeft" to="." method="_on_arrowLeft_pressed"]
 
 [connection signal="pressed" from="arrowRight" to="." method="_on_arrowRight_pressed"]
