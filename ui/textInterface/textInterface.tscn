@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ui/textInterface/textInterface.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/ui/panels/text-patch.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/somepxNew.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/sprites/ui/buttons/next.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/ui/buttons/ok.png" type="Texture" id=5]
+[ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=6]
 
 [node name="textInterface" type="CenterContainer"]
 
@@ -74,7 +75,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
 margin_right = 310.0
-margin_bottom = 54.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 300, 54 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -91,8 +92,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 5.0
 margin_right = 232.0
-margin_bottom = 54.0
+margin_bottom = 59.0
 rect_min_size = Vector2( 232, 54 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -131,7 +133,7 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 4 )
 stretch_mode = 4
-_sections_unfolded = [ "Margin", "Rect", "Textures" ]
+_sections_unfolded = [ "Margin", "Rect", "Textures", "Visibility" ]
 
 [node name="confirmButton" type="TextureButton" parent="patch" index="1"]
 
@@ -140,9 +142,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 32.0
+margin_left = 90.0
+margin_top = -62.0
+margin_right = 154.0
+margin_bottom = 2.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -155,7 +158,16 @@ enabled_focus_mode = 2
 shortcut = null
 group = null
 texture_normal = ExtResource( 5 )
-_sections_unfolded = [ "Margin", "Textures" ]
+_sections_unfolded = [ "Margin", "Textures", "Visibility" ]
+
+[node name="sfx" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="pressed" from="patch/patchMargins/patchHbox/nextButton" to="." method="_on_nextButton_pressed"]
 

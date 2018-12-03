@@ -5,6 +5,7 @@ onready var computerDeityPanel = $ui/uiContainer/deityHbox/computerDeityPanel
 onready var deityHbox = $ui/uiContainer/deityHbox
 onready var followerHbox = $ui/uiContainer/followerHbox
 onready var playerDeityPanel = $ui/uiContainer/deityHbox/playerDeityPanel
+onready var sfx = $sfx
 onready var textHbox = $ui/uiContainer/textHbox
 onready var textInterface = $ui/uiContainer/textHbox/textInterface
 onready var tween = $tween
@@ -112,6 +113,7 @@ func _on_carousel_tree_exited():
 
 # Called at end of text cycle to trigger a reset of the bidding flow
 func _on_confirmButton_pressed():
+	sfx.play()
 	resetSacrificePrompt()
 
 # Called when cycling through the text array

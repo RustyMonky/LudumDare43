@@ -2,6 +2,7 @@ extends TextureRect
 
 onready var scrollBar = $scrollBar
 onready var scrollLabel = $scrollLabel
+onready var sfx = $sfx
 onready var submit = $submit
 
 func _ready():
@@ -29,6 +30,7 @@ func setText(labelText):
 func _on_submit_pressed():
 	gameData.playerSacrificeCount = scrollBar.value
 	gameData.totalSacrified += scrollBar.value
+	sfx.play()
 
 # Disables the button
 func _on_submit_button_up():

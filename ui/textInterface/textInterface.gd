@@ -3,6 +3,7 @@ extends CenterContainer
 onready var confirmButton = $patch/confirmButton
 onready var label = $patch/patchMargins/patchHbox/label
 onready var nextButton = $patch/patchMargins/patchHbox/nextButton
+onready var sfx = $sfx
 
 var currentTextIndex = 0
 var textArray = []
@@ -27,6 +28,7 @@ func setText(labelText):
 func _on_nextButton_pressed():
 	currentTextIndex += 1
 	label.text = String(textArray[currentTextIndex].text)
+	sfx.play()
 
 	if currentTextIndex + 1 > textArray.size() - 1:
 		nextButton.hide()

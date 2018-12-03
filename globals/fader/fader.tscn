@@ -3,7 +3,7 @@
 [ext_resource path="res://globals/fader/fader.gd" type="Script" id=1]
 [ext_resource path="res://globals/fader/fader.tres" type="Animation" id=2]
 
-[node name="fader" type="CanvasLayer" index="0"]
+[node name="fader" type="CanvasLayer"]
 
 layer = 0
 offset = Vector2( 0, 0 )
