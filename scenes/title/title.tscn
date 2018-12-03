@@ -91,7 +91,7 @@ bus = "Master"
 [node name="sfx" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = ExtResource( 6 )
-volume_db = -10.0
+volume_db = -15.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0

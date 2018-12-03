@@ -1,10 +1,11 @@
 extends Container
 
 onready var deity = $deity
-onready var deitiesDefeated = $resultVbox/deitiesDefeatedCount
+onready var deitiesDefeated = $resultGrid/deitiesDefeatedCount
 onready var resultHeader = $resultHeader
-onready var totalSacrificed = $resultVbox/totalSacrificedCount
-onready var totalRemaining = $resultVbox/totalRemainingCount
+onready var resultGrid = $resultGrid
+onready var totalSacrificed = $resultGrid/totalSacrificedCount
+onready var totalRemaining = $resultGrid/totalRemainingCount
 
 func _ready():
 	deity.texture = load("res://assets/sprites/deities/" + gameData.chosenDeity + ".png")

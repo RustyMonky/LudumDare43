@@ -32,6 +32,18 @@ func addFollowers():
 		followerHbox.add_child(follower)
 	playerDeityPanel.setCount(gameData.playerFollowerCount)
 
+# checkComputerCount
+# If the computer follower count descends past zero, round it to zero
+func checkComputerCount():
+	if gameData.computerFollowerCount < 0:
+		gameData.computerFollowerCount = 0
+
+# checkPlayerCount
+# If the player follower count descends past zero, round it to zero
+func checkPlayerCount():
+	if gameData.playerFollowerCount < 0:
+		gameData.playerFollowerCount = 0
+
 # promptSacrifices
 # Resets sacrifice count and adds the vertical scroll interface
 func promptSacrifices():
@@ -121,6 +133,7 @@ func _on_nextButton_pressed():
 	match(textInterface.textArray[textInterface.currentTextIndex].event):
 		"computerSacrifice":
 			gameData.computerFollowerCount -= computerBid
+			checkComputerCount()
 			computerDeityPanel.setCount(gameData.computerFollowerCount)
 
 		"winBid":
@@ -130,6 +143,7 @@ func _on_nextButton_pressed():
 
 		"computerLoseBid":
 			gameData.computerFollowerCount -= 1
+			checkComputerCount()
 			computerDeityPanel.setCount(gameData.computerFollowerCount)
 
 		"computerWinBid":
@@ -138,6 +152,7 @@ func _on_nextButton_pressed():
 
 		"loseBid":
 			gameData.playerFollowerCount -= 1
+			checkPlayerCount()
 			playerDeityPanel.setCount(gameData.playerFollowerCount)
 			addFollowers()
 
@@ -156,6 +171,8 @@ func _on_nextButton_pressed():
 
 # Called when a sacrifice count is selected and the vertical scroll has exited the tree
 func _on_vertScroll_tree_exited():
+	sfx.play()
+
 	var textArrayToUse = [{
 		"event": "playerSacrifice",
 		"text": "You've sacrificed " + String(gameData.playerSacrificeCount) + " worshippers."

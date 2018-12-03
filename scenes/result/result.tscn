@@ -47,16 +47,15 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
-[node name="resultVbox" type="GridContainer" parent="." index="1"]
+[node name="resultGrid" type="GridContainer" parent="." index="1"]
 
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -310.0
+margin_left = -160.0
 margin_top = -100.0
-margin_right = 310.0
+margin_right = 160.0
 margin_bottom = 180.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -64,10 +63,12 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_constants/vseparation = 16
+custom_constants/hseparation = 16
 columns = 2
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "Margin", "Rect", "custom_constants" ]
 
-[node name="deitiesDefeatedLabel" type="Label" parent="resultVbox" index="0"]
+[node name="deitiesDefeatedLabel" type="Label" parent="resultGrid" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -89,14 +90,14 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="deitiesDefeatedCount" type="Label" parent="resultVbox" index="1"]
+[node name="deitiesDefeatedCount" type="Label" parent="resultGrid" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 257.0
-margin_right = 257.0
+margin_left = 269.0
+margin_right = 269.0
 margin_bottom = 23.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -111,15 +112,15 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="totalSacrificedLabel" type="Label" parent="resultVbox" index="2"]
+[node name="totalSacrificedLabel" type="Label" parent="resultGrid" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 27.0
+margin_top = 39.0
 margin_right = 253.0
-margin_bottom = 50.0
+margin_bottom = 62.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -134,16 +135,16 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="totalSacrificedCount" type="Label" parent="resultVbox" index="3"]
+[node name="totalSacrificedCount" type="Label" parent="resultGrid" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 257.0
-margin_top = 27.0
-margin_right = 257.0
-margin_bottom = 50.0
+margin_left = 269.0
+margin_top = 39.0
+margin_right = 269.0
+margin_bottom = 62.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -157,15 +158,15 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="totalRemainingLabel" type="Label" parent="resultVbox" index="4"]
+[node name="totalRemainingLabel" type="Label" parent="resultGrid" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 54.0
+margin_top = 78.0
 margin_right = 253.0
-margin_bottom = 77.0
+margin_bottom = 101.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -180,16 +181,16 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="totalRemainingCount" type="Label" parent="resultVbox" index="5"]
+[node name="totalRemainingCount" type="Label" parent="resultGrid" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 257.0
-margin_top = 54.0
-margin_right = 257.0
-margin_bottom = 77.0
+margin_left = 269.0
+margin_top = 78.0
+margin_right = 269.0
+margin_bottom = 101.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
