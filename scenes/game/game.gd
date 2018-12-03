@@ -114,8 +114,10 @@ func victory(textArray):
 func _on_carousel_tree_exited():
 	playerDeityPanel.setCount(gameData.playerFollowerCount)
 	playerDeityPanel.setDeityTexture(gameData.chosenDeity)
+	playerDeityPanel.setName(gameData.chosenDeity)
 	computerDeityPanel.setCount(gameData.computerFollowerCount)
 	computerDeityPanel.setDeityTexture(gameData.computerDeity)
+	computerDeityPanel.setName(gameData.computerDeity)
 	tween.interpolate_property(deityHbox, "modulate", Color(1,1,1,0), Color(1,1,1,1), 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.interpolate_property(textInterface, "modulate", Color(1,1,1,0), Color(1,1,1,1), 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
@@ -165,6 +167,7 @@ func _on_nextButton_pressed():
 			gameData.computerFollowerCount = 10
 			computerDeityPanel.setCount(gameData.computerFollowerCount)
 			computerDeityPanel.setDeityTexture(gameData.computerDeity)
+			computerDeityPanel.setName(gameData.computerDeity)
 
 		"sacrificePrompt":
 			resetSacrificePrompt()

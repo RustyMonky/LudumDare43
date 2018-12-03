@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/sprites/ui/buttons/restart.png" type="Texture" id=7]
 [ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=8]
 
-[node name="result" type="Container" index="0"]
+[node name="result" type="Container"]
 
 show_behind_parent = true
 anchor_left = 0.0
