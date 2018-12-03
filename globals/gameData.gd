@@ -8,7 +8,7 @@ var deitiesDefeated = 0
 var deityOptions = [
 	"Orifices",
 	"Dodocan",
-	"Neckbeards",
+	"Fertility",
 	"Bones",
 	"Deals",
 	"Hunger"
@@ -31,7 +31,7 @@ func reset():
 	deityOptions = [
 		"Orifices",
 		"Dodocan",
-		"Neckbeards",
+		"Fertility",
 		"Bones",
 		"Deals",
 		"Hunger"

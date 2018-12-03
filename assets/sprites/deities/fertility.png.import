@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/neckbeards.png-70932ec3a2f273c540d780102de2f45e.stex"
+path="res://.import/fertility.png-456c2ab836849b9bbef9bb83c89f946f.stex"
 
 [deps]
 
-source_file="res://assets/sprites/deities/neckbeards.png"
-dest_files=[ "res://.import/neckbeards.png-70932ec3a2f273c540d780102de2f45e.stex" ]
+source_file="res://assets/sprites/deities/fertility.png"
+dest_files=[ "res://.import/fertility.png-456c2ab836849b9bbef9bb83c89f946f.stex" ]
 
 [params]
 

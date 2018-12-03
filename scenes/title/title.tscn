@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/music/occultBassLoop.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/sfx/playHorn.wav" type="AudioStream" id=6]
 
-[node name="title" type="Container"]
+[node name="title" type="Container" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -28,9 +28,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -78.0
+margin_left = -236.0
 margin_top = -80.0
-margin_right = 78.0
+margin_right = 236.0
 margin_bottom = -20.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -39,11 +39,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Title"
+custom_colors/font_color_shadow = Color( 0.121569, 0.0941176, 0.2, 1 )
+text = "Ante of the Gods"
 align = 1
 valign = 1
-uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

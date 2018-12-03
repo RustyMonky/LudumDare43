@@ -100,7 +100,7 @@ func victory(textArray):
 
 		textArray.append({
 			"event": "victory",
-			"text": "Your victory has attracted 5 more worshippers!"
+			"text": "Your victory has attracted 7 more worshippers!"
 		})
 
 		textArray.append({
@@ -159,7 +159,7 @@ func _on_nextButton_pressed():
 			addFollowers()
 
 		"victory":
-			gameData.playerFollowerCount += 5
+			gameData.playerFollowerCount += 7
 			playerDeityPanel.setCount(gameData.playerFollowerCount)
 			addFollowers()
 
@@ -168,9 +168,7 @@ func _on_nextButton_pressed():
 			computerDeityPanel.setCount(gameData.computerFollowerCount)
 			computerDeityPanel.setDeityTexture(gameData.computerDeity)
 			computerDeityPanel.setName(gameData.computerDeity)
-
-		"sacrificePrompt":
-			resetSacrificePrompt()
+			gameData.deityOptions.erase(gameData.computerDeity)
 
 # Called when a sacrifice count is selected and the vertical scroll has exited the tree
 func _on_vertScroll_tree_exited():

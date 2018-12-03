@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/sprites/ui/icons/follower.png" type="Texture" id=4]
 [ext_resource path="res://assets/fonts/somepxNew.tres" type="DynamicFont" id=5]
 
-[node name="deityPanel" type="TextureRect" index="0"]
+[node name="deityPanel" type="TextureRect"]
 
 anchor_left = 0.5
 anchor_top = 0.5
