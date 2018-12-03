@@ -8,7 +8,10 @@ var deitiesDefeated = 0
 var deityOptions = [
 	"Orifices",
 	"Dodocan",
-	"Neckbeards"
+	"Neckbeards",
+	"Bones",
+	"Deals",
+	"Hunger"
 ]
 var playerFollowerCount = 10
 var playerSacrificeCount = 0

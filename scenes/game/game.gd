@@ -119,6 +119,7 @@ func _on_vertScroll_tree_exited():
 			playerDeityPanel.setCount(gameData.playerFollowerCount)
 			textArrayToUse.append("Your victory has attracted 5 more worshippers!")
 			textArrayToUse.append(gameData.computerDeity + " is the next deity to defeat.")
+			computerDeityPanel.setDeityTexture(gameData.computerDeity)
 	else:
 		textArrayToUse.append(gameData.computerDeity + " still has " + String(gameData.computerFollowerCount) + " worshippers left.")
 

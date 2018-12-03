@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/result/result.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/ui/panels/diety-panel.png" type="Texture" id=2]
 
-[node name="result" type="Container"]
+[node name="result" type="Container" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
