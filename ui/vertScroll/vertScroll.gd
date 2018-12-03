@@ -28,6 +28,7 @@ func setText(labelText):
 # Sets the number of followers to sacrifice
 func _on_submit_pressed():
 	gameData.playerSacrificeCount = scrollBar.value
+	gameData.totalSacrified += scrollBar.value
 
 # Disables the button
 func _on_submit_button_up():

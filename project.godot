@@ -16,6 +16,8 @@ config/icon="res://icon.png"
 [autoload]
 
 gameData="*res://globals/gameData.gd"
+fader="*res://globals/fader/fader.tscn"
+sceneManager="*res://globals/sceneManager.gd"
 
 [display]
 

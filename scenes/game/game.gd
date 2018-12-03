@@ -44,7 +44,7 @@ func resetSacrificePrompt():
 		textHbox.add_child(vertScroll)
 
 	else:
-		print("Lose")
+		fader.fade("res://scenes/result/result.tscn")
 
 # Signals
 
@@ -108,7 +108,7 @@ func _on_vertScroll_tree_exited():
 		randomize()
 
 		if gameData.deityOptions.empty():
-			print("Win")
+			fader.fade("res://scenes/result/result.tscn")
 		elif gameData.playerFollowerCount > 0:
 			var randIndex = randi() % gameData.deityOptions.size() - 1
 			gameData.computerDeity = gameData.deityOptions[randIndex]

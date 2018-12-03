@@ -8,6 +8,7 @@ var deitiesDefeated = 0
 var deityOptions = ["A", "B", "C"]
 var playerFollowerCount = 10
 var playerSacrificeCount = 0
+var totalSacrified = 0
 
 func _ready():
 	pass
