@@ -48,7 +48,7 @@ func _on_arrowRight_pressed():
 # Assigns the diety to the player
 func _on_chooseButton_pressed():
 	chooseButton.disabled = true
-	gameData.chosenDiety = options[currentOption]
+	gameData.chosenDeity = options[currentOption]
 	gameData.deityOptions.erase(options[currentOption])
 
 	randomize()
