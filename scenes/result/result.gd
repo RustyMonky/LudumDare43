@@ -4,6 +4,7 @@ onready var deity = $deity
 onready var deitiesDefeated = $resultGrid/deitiesDefeatedCount
 onready var resultHeader = $resultHeader
 onready var resultGrid = $resultGrid
+onready var sfx = $sfx
 onready var totalSacrificed = $resultGrid/totalSacrificedCount
 onready var totalRemaining = $resultGrid/totalRemainingCount
 
@@ -17,3 +18,8 @@ func _ready():
 	deitiesDefeated.text = String(gameData.deitiesDefeated)
 	totalSacrificed.text = String(gameData.totalSacrified)
 	totalRemaining.text = String(gameData.playerFollowerCount)
+
+func _on_restart_pressed():
+	sfx.play()
+	gameData.reset()
+	fader.fade("res://scenes/title/title.tscn")
