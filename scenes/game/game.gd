@@ -12,6 +12,7 @@ onready var uiContainer = $ui/uiContainer
 
 var computerBid = 0
 var followerIcon = load("res://assets/sprites/ui/icons/follower.png")
+var worshipper = load("res://ui/worshipper/worshipper.tscn")
 
 func _ready():
 	carousel.setHeader("your deity")
@@ -27,8 +28,7 @@ func addFollowers():
 		child.queue_free()
 
 	for i in range(gameData.playerFollowerCount):
-		var follower = TextureRect.new()
-		follower.texture = followerIcon
+		var follower = worshipper.instance()
 		followerHbox.add_child(follower)
 	playerDeityPanel.setCount(gameData.playerFollowerCount)
 

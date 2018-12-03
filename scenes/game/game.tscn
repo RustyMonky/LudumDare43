@@ -1,12 +1,65 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/game/game.gd" type="Script" id=1]
 [ext_resource path="res://ui/themes/deityHbox/deityHbox.tres" type="Theme" id=2]
 [ext_resource path="res://ui/deityPanel/deityPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/textInterface/textInterface.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/carousel/carousel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sprites/screens/game.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/effects/light.png" type="Texture" id=7]
 
-[node name="game" type="Node2D" index="0"]
+[sub_resource type="Gradient" id=2]
+
+offsets = PoolRealArray( 0, 1.54143e-043, 1 )
+colors = PoolColorArray( 0.788235, 0.188235, 0.219608, 1, 0.870588, 0.415686, 0.219608, 1, 1, 0.678431, 0.231373, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+
+flags = 4
+gradient = SubResource( 2 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=1]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 8, 1, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 90.0
+flatness = 1.0
+gravity = Vector3( 0, -90, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1.0
+linear_accel_random = 0.0
+radial_accel = -30.0
+radial_accel_random = 1.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 3 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Emission Shape", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Spread", "Trail" ]
+
+[node name="game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -129,6 +182,61 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
+
+[node name="background" type="Sprite" parent="." index="2"]
+
+texture = ExtResource( 6 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="altarEmbers" type="Particles2D" parent="background" index="0"]
+
+position = Vector2( 320, 270 )
+emitting = true
+amount = 16
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 0.5
+explosiveness = 0.0
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 1 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Visibility" ]
+
+[node name="altarLight" type="Light2D" parent="." index="3"]
+
+position = Vector2( 320, 180 )
+enabled = true
+editor_only = false
+texture = ExtResource( 7 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 0.6, 0.6, 0.6, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 1
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Shadow" ]
 
 [connection signal="tree_exited" from="ui/uiContainer/carousel" to="." method="_on_carousel_tree_exited"]
 
