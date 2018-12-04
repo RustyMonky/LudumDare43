@@ -17,7 +17,7 @@ func setCount(count):
 # param [String]
 # Sets the deity texture based on the provided deity
 func setDeityTexture(deityName):
-	deity.texture = load("res://assets/sprites/deities/" + deityName + ".png")
+	deity.texture = load("res://assets/sprites/deities/" + deityName.to_lower() + ".png")
 
 # setName
 # param [String]
